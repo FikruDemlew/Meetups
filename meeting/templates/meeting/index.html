@@ -7,8 +7,41 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>All Meetups</title>
     <link rel="stylesheet" href="{% static 'meeting/styles/base.css' %}">
+    <link rel="stylesheet" href="{% static 'meeting/styles/all-meetups.css' %}">
+    <link rel="stylesheet" href="{% static 'meeting/styles/meetup-detail.css' %}">
 </head>
 <body>
-    <h1>Meeting Index</h1>
+    <header id="main-header">
+        <nav>
+          <a href="/meetings" id="main-logo">All Meetups</a>
+        </nav>
+        <h1>We got great meetups coming up</h1>
+        <p> FIND THE MEETUPS YOU LOVE</p >
+    </header>
+    <main>
+        <section id="meetups-list"> 
+            <h2>Upcoming Meetups</h2>
+            <ol>
+                {% for meetup in meetups %}
+                    <li class="meetup-item">
+                        <article>
+                           <div class="meetup-summary">
+                            <div class="meetup-image">
+                                <img src="" alt="">
+                            </div>
+                            <div class="meetup-details">
+                                <h3>{{ meetup.title }}</h3>                               
+                                <address>Location: {{ meetup.location }}</address>  
+                            </div>
+                           </div>
+                           <div class="meetup-actions">
+                            <a href="{% url 'meetup_detail' meetup.slug %}" class="btn">More Details</a>
+                           </div>
+                        </article>
+                    </li>
+                {% endfor %}
+        </section>
+
+    
 </body>
 </html>
