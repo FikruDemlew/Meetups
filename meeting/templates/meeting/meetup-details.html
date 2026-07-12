@@ -1,17 +1,20 @@
+{% extends 'meeting/base/base.html' %}
+
 {% load static %}
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>{{ meetup_title }}</title>
-    <link rel="stylesheet" href="{% static 'meeting/styles/base.css' %}">
+
+{% block title %}{{ meetup_title }}{% endblock %}
+{% block site_css %}
     <link rel="stylesheet" href="{% static 'meeting/styles/all-meetups.css' %}">
     <link rel="stylesheet" href="{% static 'meeting/styles/meetup-detail.css' %}">
-</head>
-<body>
-</head>
-<body>
+{% endblock %}
+
+{% block main_heading %}
+    {{ meetup_title }}
+{% endblock %}
+
+
+
+{% block body %}
     <main>
         <article class="meetup-detail">
            <img src="" alt="">
@@ -33,5 +36,4 @@
            </section>
         </article>
     </main> 
-</body>
-</html>
+{% endblock %}
